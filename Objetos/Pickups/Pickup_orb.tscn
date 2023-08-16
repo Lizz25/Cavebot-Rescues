@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bohyol2my6fvc"]
+
+[ext_resource type="Texture2D" uid="uid://bto7bh4oaevw0" path="res://Art/Plasma.png" id="1_qpyxf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0gje"]
+radius = 29.0172
+
+[node name="Area2D" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_qpyxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q0gje")
+disabled = true

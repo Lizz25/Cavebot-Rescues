@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr7hfn1d6all"]
+
+[ext_resource type="Script" path="res://Scripts/Resource.gd" id="1_bv3sq"]
+[ext_resource type="PackedScene" uid="uid://dnm41l2jjem78" path="res://Objetos/Pickups/Pickup_diamante.tscn" id="2_8tsuo"]
+[ext_resource type="Texture2D" uid="uid://cr3d6v6oto62h" path="res://Art/Mineral.png" id="2_1447t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7nhy"]
+size = Vector2(56.9683, 45.5015)
+
+[node name="Resource" type="StaticBody2D"]
+z_index = 4
+rotation = -0.0015821
+script = ExtResource("1_bv3sq")
+pickup_type = ExtResource("2_8tsuo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 4
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_1447t")
+hframes = 2
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.46043, 17.2523)
+shape = SubResource("RectangleShape2D_l7nhy")
