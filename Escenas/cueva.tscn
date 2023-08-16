@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cin4dgxd8sfv7"]
+[gd_scene load_steps=36 format=3 uid="uid://cin4dgxd8sfv7"]
 
 [ext_resource type="Script" path="res://Scripts/Global.gd" id="1_cvfed"]
 [ext_resource type="PackedScene" uid="uid://brxx7tlctn5wj" path="res://player/bot.tscn" id="1_fc6ad"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bky5amwi6olyl" path="res://Art/Bloqueo.png" id="4_wp4cn"]
 [ext_resource type="PackedScene" uid="uid://dnm41l2jjem78" path="res://Objetos/Pickups/Pickup_diamante.tscn" id="6_msmjj"]
 [ext_resource type="PackedScene" uid="uid://dr7hfn1d6all" path="res://Objetos/Diamante.tscn" id="8_yesxw"]
+[ext_resource type="Texture2D" uid="uid://deu5cpnrfgeth" path="res://Art/azul.png" id="11_2gb4d"]
+[ext_resource type="Script" path="res://Scripts/diamantesP.gd" id="11_qb3sf"]
+[ext_resource type="FontFile" uid="uid://dfx0pwrgr48oj" path="res://Fonts/Kenney Future Narrow.ttf" id="13_akxtn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l5hbc"]
 texture = ExtResource("4_wp4cn")
@@ -831,6 +834,16 @@ pattern_6 = SubResource("TileMapPattern_470ga")
 pattern_7 = SubResource("TileMapPattern_3nlrh")
 pattern_8 = SubResource("TileMapPattern_s47of")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv280"]
+bg_color = Color(0.745098, 1, 1, 0.188235)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="FontVariation" id="FontVariation_84m8v"]
+base_font = ExtResource("13_akxtn")
+
 [node name="Cueva" type="Node2D"]
 script = ExtResource("1_cvfed")
 
@@ -899,3 +912,31 @@ limit_left = 0
 limit_top = 0
 limit_right = 2700
 limit_bottom = 2100
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("11_qb3sf")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 1024.0
+offset_top = 16.0
+offset_right = 1136.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xv280")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1056, 40)
+texture = ExtResource("11_2gb4d")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="diamantesCont" type="Label" parent="CanvasLayer"]
+offset_left = 1080.0
+offset_top = 32.0
+offset_right = 1128.0
+offset_bottom = 61.0
+theme_override_fonts/font = SubResource("FontVariation_84m8v")
+theme_override_font_sizes/font_size = 22
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 2
