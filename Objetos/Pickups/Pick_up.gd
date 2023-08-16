@@ -47,3 +47,10 @@ func set_random_properties():
 	sprite.rotation_degrees = rotation_degrees  # Aplicar la rotación al sprite
 	print(scale_factor)
 	print(sprite.scale)
+
+
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		print("player detectado")
+		queue_free()
+	pass # Replace with function body.
